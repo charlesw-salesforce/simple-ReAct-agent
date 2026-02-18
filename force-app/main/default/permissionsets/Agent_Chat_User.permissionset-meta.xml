@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grants access to the Agent Chat application and all related features</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Agent Chat User</label>
+
+    <!-- Custom Application -->
+    <applicationVisibilities>
+        <application>Agent_Chat</application>
+        <visible>true</visible>
+    </applicationVisibilities>
+
+    <!-- Custom Tab -->
+    <tabSettings>
+        <tab>Agent_Chat</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+
+    <!-- AgentSession__c Object -->
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>AgentSession__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+
+    <!-- AgentStep__e Platform Event -->
+    <objectPermissions>
+        <allowRead>true</allowRead>
+        <object>AgentStep__e</object>
+    </objectPermissions>
+
+    <!-- AgentStep__e Fields -->
+    <fieldPermissions>
+        <field>AgentStep__e.SessionId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <field>AgentStep__e.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <field>AgentStep__e.Thought__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <field>AgentStep__e.Utterance__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <field>AgentStep__e.Answer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <field>AgentStep__e.ToolName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <field>AgentStep__e.ToolResult__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+    <!-- AgentSession__c Fields -->
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AgentSession__c.SessionId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AgentSession__c.StopRequested__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AgentSession__c.NextSequence__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+
+    <!-- Apex Classes -->
+    <classAccesses>
+        <apexClass>AgentController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AgentQueueable</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AgentOutput</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AgentUnitOfWork</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PromptService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ActionRouter</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ToolDefinitions</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IAgentTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CreateRecordTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DeleteRecordsTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DescribeObjectTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetRecordTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GetRelatedRecordsTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QueryRecordsTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SearchRecordsTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateRecordTool</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+</PermissionSet>

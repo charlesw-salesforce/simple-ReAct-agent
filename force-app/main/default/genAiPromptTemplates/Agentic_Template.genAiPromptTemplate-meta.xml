@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>24gDFocqOepa55VfL5AwuAHLupBToSLYRUwrZrOAKWk=_1</activeVersionIdentifier>
+    <developerName>Agentic_Template</developerName>
+    <masterLabel>Agentic Template</masterLabel>
+    <templateVersions>
+        <content>&lt;system-context&gt;
+{!$Input:systemContext}
+&lt;/system-context&gt;
+
+&lt;tools&gt;
+{!$Input:tools}
+&lt;/tools&gt;
+
+&lt;conversation-history&gt;
+{!$Input:conversationHistory}
+&lt;/conversation-history&gt;
+
+&lt;previous-steps&gt;
+{!$Input:previousSteps}
+&lt;/previous-steps&gt;
+
+&lt;current-message&gt;
+{!$Input:userMessage}
+&lt;/current-message&gt;
+
+&lt;task&gt;
+Think step by step. Analyze what you know from the conversation
+history and previous steps. Decide which tools to call next or
+whether you are finished.
+
+When you are finished, return an answer and no toolCalls.
+&lt;/task&gt;
+</content>
+        <inputs>
+            <apiName>systemContext</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>systemContext</masterLabel>
+            <referenceName>Input:systemContext</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>tools</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>tools</masterLabel>
+            <referenceName>Input:tools</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>conversationHistory</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>conversationHistory</masterLabel>
+            <referenceName>Input:conversationHistory</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>previousSteps</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>previousSteps</masterLabel>
+            <referenceName>Input:previousSteps</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>userMessage</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>userMessage</masterLabel>
+            <referenceName>Input:userMessage</referenceName>
+            <required>true</required>
+        </inputs>
+        <outputSchema>1wbfj0000000Xon</outputSchema>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude45Sonnet</primaryModel>
+        <responseFormat>JSON</responseFormat>
+        <status>Published</status>
+        <versionIdentifier>24gDFocqOepa55VfL5AwuAHLupBToSLYRUwrZrOAKWk=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

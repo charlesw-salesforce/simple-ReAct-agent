@@ -1,0 +1,95 @@
+<template>
+  <div class="chat-outer">
+    <div class="chat-container">
+      <div class="chat-window" lwc:ref="chatWindow">
+      <div class="message-list">
+        <template for:each={messages} for:item="msg">
+          <template lwc:if={msg.steps.length}>
+            <template for:each={msg.steps} for:item="step">
+              <div key={step.id} class="step-card">
+                <div class="step-card-header" data-id={step.id} onclick={toggleThought}>
+                  <span class="step-card-text">{step.headerText}</span>
+                  <template lwc:if={step.thought}>
+                    <template lwc:if={step.showThought}>
+                      <span class="step-card-chevron">&#9652;</span>
+                    </template>
+                    <template lwc:else>
+                      <span class="step-card-chevron">&#9662;</span>
+                    </template>
+                  </template>
+                </div>
+                <template lwc:if={step.showThought}>
+                  <div class="step-card-body">{step.thought}</div>
+                </template>
+              </div>
+            </template>
+          </template>
+          <div key={msg.id} class={msg.messageClass}>
+            <div class="message-bubble">
+              <lightning-formatted-rich-text value={msg.content}></lightning-formatted-rich-text>
+            </div>
+          </div>
+        </template>
+
+        <template lwc:if={isLoading}>
+          <template lwc:if={currentSteps.length}>
+            <template for:each={currentSteps} for:item="step">
+              <div key={step.id} class="step-card">
+                <div class="step-card-header" data-id={step.id} onclick={toggleThought}>
+                  <span class="step-card-text">{step.headerText}</span>
+                  <template lwc:if={step.thought}>
+                    <template lwc:if={step.showThought}>
+                      <span class="step-card-chevron">&#9652;</span>
+                    </template>
+                    <template lwc:else>
+                      <span class="step-card-chevron">&#9662;</span>
+                    </template>
+                  </template>
+                </div>
+                <template lwc:if={step.showThought}>
+                  <div class="step-card-body">{step.thought}</div>
+                </template>
+              </div>
+            </template>
+          </template>
+          <div class="loading-container">
+            <div class="loading-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <div class="input-wrapper">
+        <lightning-textarea
+          label="Type your message"
+          variant="label-hidden"
+          placeholder="Message the agent..."
+          value={inputValue}
+          onchange={handleInputChange}
+          onkeydown={handleKeyDown}
+          disabled={isLoading}
+        ></lightning-textarea>
+        <template lwc:if={isLoading}>
+          <lightning-button
+            label="Stop"
+            variant="destructive"
+            onclick={handleStop}
+          ></lightning-button>
+        </template>
+        <template lwc:else>
+          <lightning-button
+            label="Send"
+            variant="brand"
+            onclick={handleSend}
+          ></lightning-button>
+        </template>
+      </div>
+    </div>
+  </div>
+  </div>
+</template>

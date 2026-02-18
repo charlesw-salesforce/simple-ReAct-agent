@@ -1,0 +1,28 @@
+{
+  "title" : "Agent Output",
+  "lightning:type" : "lightning__objectType",
+  "properties" : {
+    "thought" : {
+      "description" : "Your internal reasoning about the current situation and what to do next. Never shown to the user.",
+      "lightning:type" : "lightning__textType",
+      "title" : "thought"
+    },
+    "utterance" : {
+      "description" : "A brief, natural message to the user about what you are doing. Shown in real-time. Empty string if not needed.",
+      "lightning:type" : "lightning__textType",
+      "title" : "utterance"
+    },
+    "answer" : {
+      "description" : "Your final response to the user as an HTML string. Empty string if invoking a tool.",
+      "lightning:type" : "lightning__textType",
+      "title" : "answer"
+    },
+    "toolCalls" : {
+      "description" : "A JSON-encoded array of tool call objects to invoke. Each object must contain 'toolName' (the tool to invoke) and 'toolParameters' (a JSON object of the tool's input parameters). You may include multiple objects to invoke tools in parallel. Empty array if providing a final answer.",
+      "lightning:type" : "lightning__textType",
+      "title" : "toolCalls"
+    }
+  },
+  "required" : [ "thought", "utterance", "answer", "toolCalls" ],
+  "description" : ""
+}
