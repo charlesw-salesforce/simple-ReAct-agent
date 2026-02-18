@@ -1,6 +1,6 @@
 # Simple ReAct Agent
 
-A simple ReAct agent implementation in pure Apex to understand how agentic patterns work.
+A simple ReAct agent implementation in pure Apex and Prompt Builder to demonstrate how agentic patterns work.
 
 ## ⚠️ Important Disclaimer
 

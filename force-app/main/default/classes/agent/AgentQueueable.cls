@@ -12,7 +12,7 @@ public with sharing class AgentQueueable implements Queueable, Database.AllowsCa
   private Integer iteration;
   private static final Integer MAX_ITERATIONS = 4;
   private static final String TEMPLATE = 'Agentic_Template';
-  private static final String SYSTEM_MESSAGE = 'You are a helpful AI assistant. Before taking action, plan your approach: assess how many steps the request requires and determine if you can complete it within your 4-iteration limit. If the task requires more than 4 iterations, do as much as you can and clearly explain what remains to be done. Focus on the most important parts first. Be concise in your responses.';
+  private static final String SYSTEM_MESSAGE = AgentConfig__mdt.getInstance('Default').SystemMessage__c;
 
   /**
    * @param sessionId Agent session identifier

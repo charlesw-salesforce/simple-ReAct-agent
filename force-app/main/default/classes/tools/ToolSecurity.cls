@@ -7,7 +7,7 @@ public with sharing class ToolSecurity {
     'Lead',
     'Task',
     'Event',
-    'CustomAgent__c'
+    'OpportunityContactRole'
   };
 
   public static void validateObject(String objectName) {
